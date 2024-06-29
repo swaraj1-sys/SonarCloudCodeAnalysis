@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@v1.11 # Ensure you use the latest version that supports Node.js 20
+        uses: sonarsource/sonarcloud-github-action@v1.5  # Use the correct stable version
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
