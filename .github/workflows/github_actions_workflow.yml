@@ -1,4 +1,5 @@
-name: "sonar_cloud_scan_github_actions"
+name: "SonarCloud Scan GitHub Actions"
+
 on:
   workflow_dispatch:
 
@@ -6,11 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4  # Updated to the latest version supporting Node.js 20
         with:
           fetch-depth: 0
+
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: sonarsource/sonarcloud-github-action@v1.11 # Ensure you use the latest version that supports Node.js 20
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
